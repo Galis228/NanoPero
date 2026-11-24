@@ -12,8 +12,8 @@ android {
         applicationId = "com.nanopero.app"
         minSdk = 26
         targetSdk = 36
-        versionCode = 17
-        versionName = "1.7"
+        versionCode = 18
+        versionName = "1.8"
         ndk { abiFilters += "arm64-v8a" }
     }
 

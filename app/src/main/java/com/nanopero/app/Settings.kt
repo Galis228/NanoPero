@@ -62,6 +62,8 @@ class Settings(ctx: Context) {
     var kbAiContinue by prefBool("kbAiContinue", false)
     var kbTheme by prefInt("kbTheme", 0)        // 0 системная, 1 светлая, 2 тёмная, 3 чёрная (AMOLED), 4 картинка
     var sharedModels by prefBool("sharedModels", false) // общая папка моделей с «Персоной»
+    var updAuto by prefBool("updAuto", true)          // проверять обновления на GitHub
+    var updLastCheck by prefLong("updLastCheck", 0L)
     // --- батарея ---
     var unloadSec by prefInt("unloadSec", 90)          // через сколько выгружать модель из памяти
     var heavyOnCharge by prefBool("heavyOnCharge", false) // тяжёлое (сводки, тесты) — только на зарядке

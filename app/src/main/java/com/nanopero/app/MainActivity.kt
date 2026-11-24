@@ -128,6 +128,13 @@ fun MainScreen(tabState: MutableIntState, record: MutableState<Boolean>, incomin
             SnackHost.undo("Прошлый раз приложение закрылось с ошибкой. Отчёт — в «Ещё → Журнал ошибок»") {}
         }
     }
+    // Раз в сутки — тихая проверка обновлений на GitHub; при находке — короткое уведомление внизу
+    val ctxU = LocalContext.current
+    LaunchedEffect(Unit) {
+        kotlinx.coroutines.delay(3000)
+        runCatching { Updates.autoCheck(ctxU) }
+        Updates.available?.let { r -> SnackHost.action("Доступна НаноПеро ${r.versionName}", "Подробнее") { tab = MainActivity.TAB_MORE; more = null } }
+    }
     LaunchedEffect(ChatState.openModels) {
         if (ChatState.openModels) { ChatState.openModels = false; tab = MainActivity.TAB_MORE; more = "model" }
     }
@@ -241,6 +248,7 @@ fun MoreMenu(onOpen: (String) -> Unit) {
     val view = rememberHaptics()
     Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(horizontal = 16.dp, vertical = 8.dp),
         verticalArrangement = Arrangement.spacedBy(2.dp)) {
+        UpdateBanner()
         moreItems.forEachIndexed { i, it ->
             val shape = when (i) {
                 0 -> RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp, bottomStart = 6.dp, bottomEnd = 6.dp)
@@ -498,6 +506,8 @@ fun SettingsTab() {
             if (s.reminderOn) SetSlider(Icons.Rounded.Schedule, "Время напоминания", "${s.reminderHour}:00", s.reminderHour.toFloat(), 17f..23f, steps = 5,
                 onFinished = { Reminder.apply(ctx) }) { s.reminderHour = it.toInt() }
         }
+
+        UpdatesSettings()
 
         SetSection("Батарея") {
             SetSlider(Icons.Rounded.Memory, "Выгружать модель из памяти через", when {
