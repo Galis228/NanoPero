@@ -1,0 +1,16 @@
+# Сборка
+build/
+.gradle/
+.kotlin/
+*.apk
+*.aab
+# Локальные пути и секреты
+local.properties
+*.jks
+*.keystore
+*.p12
+signing.properties
+# IDE
+.idea/
+*.iml
+.DS_Store

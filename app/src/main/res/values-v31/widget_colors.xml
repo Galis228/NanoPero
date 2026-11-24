@@ -1,0 +1,5 @@
+<resources>
+    <color name="w_bg">@android:color/system_accent2_50</color>
+    <color name="w_btn">@android:color/system_accent1_100</color>
+    <color name="w_on">@android:color/system_accent1_900</color>
+</resources>

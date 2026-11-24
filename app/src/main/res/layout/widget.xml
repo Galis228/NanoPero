@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_bg"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <LinearLayout android:id="@+id/w_clip" style="@style/WidgetBtn">
+        <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_w_spark" android:contentDescription="@null" />
+        <TextView style="@style/WidgetLabel" android:text="Буфер" />
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/w_voice" style="@style/WidgetBtn">
+        <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_w_mic" android:contentDescription="@null" />
+        <TextView style="@style/WidgetLabel" android:text="Голос" />
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/w_digest" style="@style/WidgetBtn">
+        <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_w_list" android:contentDescription="@null" />
+        <TextView style="@style/WidgetLabel" android:text="Сводка" />
+    </LinearLayout>
+</LinearLayout>

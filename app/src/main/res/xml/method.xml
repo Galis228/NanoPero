@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<input-method xmlns:android="http://schemas.android.com/apk/res/android"
+    android:settingsActivity="com.nanopero.app.MainActivity"
+    android:supportsSwitchingToNextInputMethod="true">
+    <subtype android:label="Русский" android:imeSubtypeLocale="ru_RU" android:imeSubtypeMode="keyboard" android:languageTag="ru-RU" />
+    <subtype android:label="Українська" android:imeSubtypeLocale="uk_UA" android:imeSubtypeMode="keyboard" android:languageTag="uk-UA" />
+    <subtype android:label="English" android:imeSubtypeLocale="en_US" android:imeSubtypeMode="keyboard" android:languageTag="en-US" />
+</input-method>
